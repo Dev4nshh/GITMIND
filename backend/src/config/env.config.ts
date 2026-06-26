@@ -3,7 +3,7 @@ import { getEnv } from "../utils/get-env";
 const envConfig = {
   NODE_ENV: getEnv("NODE_ENV", "development"),
   PORT: getEnv("PORT", "8000"),
-    BASE_URL: getEnv("BASE_URL"),
+  BASE_URL: getEnv("BASE_URL", getEnv("FRONTEND_ORIGIN", "http://localhost:8000")),
     
   MONGO_URI: getEnv("MONGO_URI"),
   JWT_SECRET: getEnv("JWT_SECRET"),

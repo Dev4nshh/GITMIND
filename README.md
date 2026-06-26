@@ -1,62 +1,93 @@
 # 🤖 GitMind – MERN AI Coding Agent
 
-> ### Commercial License Required
->
-> This project is **Free for Personal Use**. A commercial license is **required** for any use of the code (in part or whole) for SaaS, client work, or production apps.
->
-> 👉 **[Get Commercial License (30% off)](https://techwithemma.gumroad.com/l/cxigr)**
-> 👉 **[Read License Terms](https://github.com/TechWithEmmaYT/MERN-AI-Coding-Agent-App/blob/main/TECHWITHEMMA-LICENSE.md)**
+GitMind is a full-stack MERN AI Coding Agent application that connects to your GitHub repositories, allows you to chat with an AI model that understands your codebase in real time, and executes file writes, edits, terminal commands, and commits in an isolated sandboxed container. When the changes are done, it can automatically push the commits and open a Pull Request.
 
 ---
 
-## ❤️ Support the Channel
+## 🧠 Key Features
 
-* 🤖 [Try Command Code (Coding CLI that learns your taste))](https://commandcode.ai/?utm_source=youtube&utm_medium=firstvideo&utm_id=emmanuel)
-* 🎥 [Subscribe on YouTube](https://tinyurl.com/subcribe-to-techwithemma)
-* ☕ [Buy Me a Coffee](https://dub.sh/buy-me-coffee)
-* 🌟 Star this repository
-
----
-
-## 🚀 Watch the Full Build on YouTube
-
-> In this video, you’ll build a **full MERN AI Coding Agent from scratch**. Users can connect GitHub repositories, chat with an AI that understands the codebase, stream responses in real time, run commands in isolated sandboxes, edit files, use Git + Bash tools, and create pull requests automatically.
-
-👉 **[Watch the Full Tutorial](https://www.youtube.com/watch?v=YOUR_VIDEO_LINK)**
+* **🔐 User Authentication:** Secure email/password login and session management.
+* **🔗 GitHub Integration:** Connect your GitHub profile via OAuth to select, list, and modify your target repositories.
+* **🧱 Isolated Sandbox Executions:** Leverages **Upstash Box** to spin up isolated container runtimes for reading/editing files, running tests, or installing npm packages.
+* **⚡ Real-time Stream Output:** Watch the agent formulate thoughts, call tools, and execute scripts in real time.
+* **📝 File & Command Tools:** Rich capabilities for listing directories, reading, writing, overwriting, grepping, and running bash commands.
+* **🌿 Git Workflow Automation:** Stage changes, Conventional Commits generation, branch checking, push, and opening Pull Requests on GitHub.
+* **🧠 Free AI Tier Support:** Fully integrated with the Vercel AI SDK utilizing Google's Gemini 2.5 Flash model for fast, capable, and cost-free coding agent tasks.
 
 ---
 
-## 🧠 Key Features 👇
+## 🏗️ Technology Stack
 
-* 🔐 Authentication 
-* 🔗 Connect GitHub repositories
-* 🧱 Isolated sandbox execution environment
-* ⚡ Real-time streaming responses
-* 📝 File read, write, and edit tools
-* 💻 Bash command tools
-* 🌿 Git tools (status, commit, push)
-* 🔀 Create pull requests
-* 🧠 AI Models
-* 🚀 Built with MERN Stack (MongoDB, Express, React, Node.js)
-* ☁️ Deployment
+* **Frontend:** React, TypeScript, Vite, Tailwind CSS, ShadcnUI, TanStack Query, and Vercel AI SDK React hooks.
+* **Backend:** Node.js, Express, TypeScript, Mongoose (MongoDB), and Passport.js (JWT Authentication).
+* **AI Orchestration:** Vercel AI SDK (`ai` and `@ai-sdk/google`).
+* **Sandbox Container:** Upstash Box (`@upstash/box`).
+* **Search Integration:** Exa Web Search (`@exalabs/ai-sdk`).
 
 ---
 
-## 🏗️ Tech Stack
+## 🚀 Getting Started
 
-* Node.js (Backend API + AI orchestration)
-* Express.js (Server framework)
-* MongoDB (Database)
-* React (Frontend UI)
-* Upstash Box (Isolated sandbox execution)
-* GitHub API / Git integration
-* LLM models (Anthropic / OpenAI compatible)
+### 1. Prerequisites
+* **Node.js** (v18+ recommended)
+* **MongoDB** (Local instance or MongoDB Atlas Cloud URI)
 
----
+### 2. Environment Configurations
 
-## 📺 Subscribe for More Projects
+#### Backend Setup
+Create a `.env` file in the `backend/` directory:
+```ini
+# Server Setup
+NODE_ENV=development
+PORT=8000
+BASE_URL=http://localhost:8000
+FRONTEND_ORIGIN=http://localhost:5173
 
-I build real-world AI systems, SaaS apps, and production-grade full-stack projects.
+# Database Connection
+MONGO_URI=mongodb://localhost:27017/gitmind-db
 
-🔔 Subscribe here  
-👉 [https://tinyurl.com/subcribe-to-techwithemma](https://tinyurl.com/subcribe-to-techwithemma)
+# JWT Configuration
+JWT_SECRET=your_secret_key_here
+JWT_EXPIRES_IN=7d
+
+# GitHub OAuth Setup
+GITHUB_CLIENT_ID=your_github_client_id
+GITHUB_CLIENT_SECRET=your_github_client_secret
+GITHUB_OAUTH_STATE_SECRET=your_state_secret
+GITHUB_TOKEN_ENCRYPTION_KEY=your_token_encryption_key
+
+# Sandbox Integration (Upstash Box)
+UPSTASH_BOX_API_KEY=your_upstash_box_key
+
+# Google Gemini API Key (Free tier from Google AI Studio)
+GOOGLE_GENERATIVE_AI_API_KEY=your_gemini_api_key
+
+# Search Integration (Exa)
+EXA_API_KEY=your_exa_search_key
+```
+
+#### Frontend Setup
+Create a `.env` file in the `client/` directory:
+```ini
+VITE_BASE_API_URL=http://localhost:8000/api/
+```
+
+### 3. Installation & Run
+
+Open two terminal tabs to run the project locally:
+
+#### Start the Backend Server
+```bash
+cd backend
+npm install
+npm run dev
+```
+
+#### Start the Frontend Client
+```bash
+cd client
+npm install
+npm run dev
+```
+
+Now, navigate your browser to `http://localhost:5173` to register, log in, link your GitHub, and start building with your coding agent!

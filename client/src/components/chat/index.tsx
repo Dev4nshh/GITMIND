@@ -136,7 +136,7 @@ const ChatInterface = ({
   const { messages, sendMessage, setMessages, status, error, stop } = useChat({
     messages: [],
     transport: new DefaultChatTransport({
-      api: `${BASE_API_URL}session/chat`,
+      api: `${BASE_API_URL.replace(/\/+$/, "")}/session/chat`,
       credentials: "include",
       prepareSendMessagesRequest: ({ messages, body }) => ({
         body: {

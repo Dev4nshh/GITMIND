@@ -1,4 +1,10 @@
 import "dotenv/config"
+// Trim all environment variables to prevent copy-paste errors (trailing spaces/newlines) on Render or local setups
+for (const key in process.env) {
+  if (typeof process.env[key] === "string") {
+    process.env[key] = process.env[key]!.trim();
+  }
+}
 import express,{ Request, Response, NextFunction } from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";

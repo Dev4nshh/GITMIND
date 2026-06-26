@@ -1,5 +1,5 @@
 import "dotenv/config"
-import express,{ Request, Response } from "express";
+import express,{ Request, Response, NextFunction } from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import path from "path"
@@ -48,8 +48,11 @@ if (envConfig.NODE_ENV === "production") {
   //Serve static files
   app.use(express.static(clientPath));
 
-  app.get(/^(?!\/api).*/, (req: Request, res: Response) => {
-    res.sendFile(path.join(clientPath, "index.html"));
+  app.use((req: Request, res: Response, next: NextFunction) => {
+    if (req.method === "GET" && !req.path.startsWith("/api")) {
+      return res.sendFile(path.join(clientPath, "index.html"));
+    }
+    next();
   });
 }
 

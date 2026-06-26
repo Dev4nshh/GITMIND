@@ -3,5 +3,6 @@ export function getEnv(key: string, defaultValue?: string): string {
   if (value === undefined) {
     throw new Error(`Missing environment variable: ${key}`);
   }
-  return value;
+  return value.trim();
 }
+

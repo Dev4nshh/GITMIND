@@ -13,6 +13,10 @@
   },
   "keywords": [],
   "devDependencies": {
+    "nodemon": "^3.1.14",
+    "ts-node": "^10.9.2"
+  },
+  "dependencies": {
     "@types/bcryptjs": "^2.4.6",
     "@types/compression": "^1.8.1",
     "@types/cookie-parser": "^1.4.10",
@@ -23,12 +27,8 @@
     "@types/node": "^25.9.1",
     "@types/passport": "^1.0.17",
     "@types/passport-jwt": "^4.0.1",
-    "nodemon": "^3.1.14",
-    "ts-node": "^10.9.2",
     "tsup": "^8.5.1",
-    "typescript": "^6.0.3"
-  },
-  "dependencies": {
+    "typescript": "^6.0.3",
     "@ai-sdk/anthropic": "^3.0.87",
     "@ai-sdk/google": "^3.0.84",
     "@exalabs/ai-sdk": "^2.0.1",

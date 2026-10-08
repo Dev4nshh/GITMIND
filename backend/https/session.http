@@ -15,7 +15,7 @@ Content-Type: application/json
 {
   "slugId": "a2b3c4d",
   "defaultBranch":"base44/landing-page-build-7z4iee",
-  "repoUrl":"https://github.com/emmazurglas/webapp-project-saas-app.git",
+  "repoUrl":"https://github.com/Dev4nshh/GITMIND.git",
    "messages": [
     {
       "id": "msg_user_1a2b3c4d",
